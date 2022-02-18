@@ -6,7 +6,7 @@ import {
   removeSelectedMovieShow,
 } from '../../redux/actions/movieActions';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaStar, FaThumbsUp, FaFilm, FaCalendarAlt } from 'react-icons/fa';
+import { FaStar, FaThumbsUp, FaCalendarAlt } from 'react-icons/fa';
 
 const MovieDetails = () => {
   const { imdbId } = useParams();
@@ -25,23 +25,16 @@ const MovieDetails = () => {
   const {
     Title,
     Year,
-    Rated,
-    Released,
     Runtime,
     Genre,
     Director,
-    Writer,
     Actors,
     Plot,
     Language,
-    Country,
     Awards,
     Poster,
-    Metascore,
     imdbRating,
     imdbVotes,
-    DVD,
-    BoxOffice,
   } = selectedMovieShow;
 
   const renderResponse = isLoading ? (

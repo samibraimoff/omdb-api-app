@@ -3,7 +3,7 @@ import './moviecard.scss';
 import { Link } from 'react-router-dom';
 
 const MovieCard = ({ data }) => {
-  const { Title, Year, Type, imdbID, Poster } = data;
+  const { Title, Year, imdbID, Poster } = data;
 
   return (
     <div className='card-item'>
