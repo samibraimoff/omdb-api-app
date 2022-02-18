@@ -19,13 +19,13 @@ import { API_KEY } from '../../common/apis/movieApiKey';
 const movieText = 'harry';
 const showText = 'friends';
 
-export const getMovies = () => async (dispatch) => {
+export const getMovies = (searched) => async (dispatch) => {
   dispatch({
     type: GET_MOVIES_REQUEST,
   });
   try {
     const response = await movieApi.get(
-      `?apiKey=${API_KEY}&s=${movieText}&type=movie`
+      `?apiKey=${API_KEY}&s=${searched}&type=movie`
     );
 
     dispatch({
@@ -61,13 +61,13 @@ export const getMovieShowDetails = (id) => async (dispatch) => {
   }
 };
 
-export const getShows = () => async (dispatch) => {
+export const getShows = (searched) => async (dispatch) => {
   dispatch({
     type: GET_SHOWS_REQUEST,
   });
   try {
     const response = await movieApi.get(
-      `?apiKey=${API_KEY}&s=${showText}&type=series`
+      `?apiKey=${API_KEY}&s=${searched}&type=series`
     );
 
     dispatch({

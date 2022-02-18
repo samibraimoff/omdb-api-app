@@ -8,9 +8,12 @@ import './home.scss';
 const Home = () => {
   const dispatch = useDispatch();
 
+  const staticMovie = 'Harry';
+  const staticShow = 'Friends';
+
   useEffect(() => {
-    dispatch(getMovies());
-    dispatch(getShows());
+    dispatch(getMovies(staticMovie));
+    dispatch(getShows(staticShow));
   }, [dispatch]);
   return (
     <Fragment>

@@ -20,3 +20,31 @@ header {
   width: 3rem;
   height: 3rem;
 }
+
+.searchBar {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    display: flex;
+    align-items: center;
+    width: 70%;
+
+    button {
+      padding: 0 0.5rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      height: 2rem;
+    }
+
+    input {
+      font: 1.2rem;
+      width: 100%;
+      padding: 0.5rem 0.5rem;
+      outline: none;
+      height: 2rem;
+    }
+  }
+}
