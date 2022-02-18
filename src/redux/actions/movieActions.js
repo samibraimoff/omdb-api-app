@@ -8,6 +8,9 @@ import {
   GET_MOVIESHOWDETAIL_FAILURE,
   GET_MOVIESHOWDETAIL_REQUEST,
   GET_MOVIESHOWDETAIL_SUCCESS,
+  REMOVE_MOVIESHOWDETAIL_FAILURE,
+  REMOVE_MOVIESHOWDETAIL_REQUEST,
+  REMOVE_MOVIESHOWDETAIL_SUCCESS,
 } from '../types';
 
 import movieApi from '../../common/apis/movieApi';
@@ -75,6 +78,23 @@ export const getShows = () => async (dispatch) => {
     console.log(error);
     dispatch({
       type: GET_SHOWS_FAILURE,
+      payload: error,
+    });
+  }
+};
+
+export const removeSelectedMovieShow = () => async (dispatch) => {
+  dispatch({
+    type: REMOVE_MOVIESHOWDETAIL_REQUEST,
+  });
+  try {
+    dispatch({
+      type: REMOVE_MOVIESHOWDETAIL_SUCCESS,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: REMOVE_MOVIESHOWDETAIL_FAILURE,
       payload: error,
     });
   }

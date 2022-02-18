@@ -8,7 +8,11 @@ import {
   GET_MOVIESHOWDETAIL_FAILURE,
   GET_MOVIESHOWDETAIL_REQUEST,
   GET_MOVIESHOWDETAIL_SUCCESS,
+  REMOVE_MOVIESHOWDETAIL_FAILURE,
+  REMOVE_MOVIESHOWDETAIL_SUCCESS,
+  REMOVE_MOVIESHOWDETAIL_REQUEST,
 } from '../types';
+
 const initialState = {
   movies: [],
   selectedMovieShow: {},
@@ -23,6 +27,7 @@ export const movieReducer = (state = initialState, action) => {
     case GET_MOVIES_REQUEST:
     case GET_SHOWS_REQUEST:
     case GET_MOVIESHOWDETAIL_REQUEST:
+    case REMOVE_MOVIESHOWDETAIL_REQUEST:
       return {
         ...state,
         isLoading: true,
@@ -53,9 +58,18 @@ export const movieReducer = (state = initialState, action) => {
         error: null,
       };
 
+    case REMOVE_MOVIESHOWDETAIL_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        selectedMovieShow: {},
+        error: null,
+      };
+
     case GET_MOVIES_FAILURE:
     case GET_SHOWS_FAILURE:
     case GET_MOVIESHOWDETAIL_FAILURE:
+    case REMOVE_MOVIESHOWDETAIL_FAILURE:
       return {
         ...state,
         isLoading: false,

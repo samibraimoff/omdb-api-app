@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
 import './moviedetails.scss';
 import { useParams } from 'react-router-dom';
-import { getMovieShowDetails } from '../../redux/actions/movieActions';
+import {
+  getMovieShowDetails,
+  removeSelectedMovieShow,
+} from '../../redux/actions/movieActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaStar, FaThumbsUp, FaFilm, FaCalendarAlt } from 'react-icons/fa';
 
@@ -14,6 +17,9 @@ const MovieDetails = () => {
 
   useEffect(() => {
     dispatch(getMovieShowDetails(imdbId));
+    return () => {
+      dispatch(removeSelectedMovieShow());
+    };
   }, [dispatch, imdbId]);
 
   const {
