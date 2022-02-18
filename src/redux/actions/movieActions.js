@@ -5,6 +5,9 @@ import {
   GET_SHOWS_FAILURE,
   GET_SHOWS_REQUEST,
   GET_SHOWS_SUCCESS,
+  GET_MOVIESHOWDETAIL_FAILURE,
+  GET_MOVIESHOWDETAIL_REQUEST,
+  GET_MOVIESHOWDETAIL_SUCCESS,
 } from '../types';
 
 import movieApi from '../../common/apis/movieApi';
@@ -30,6 +33,26 @@ export const getMovies = () => async (dispatch) => {
     console.log(error);
     dispatch({
       type: GET_MOVIES_FAILURE,
+      payload: error,
+    });
+  }
+};
+
+export const getMovieShowDetails = (id) => async (dispatch) => {
+  dispatch({
+    type: GET_MOVIESHOWDETAIL_REQUEST,
+  });
+  try {
+    const response = await movieApi.get(`?apiKey=${API_KEY}&i=${id}&plot=full`);
+
+    dispatch({
+      type: GET_MOVIESHOWDETAIL_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: GET_MOVIESHOWDETAIL_FAILURE,
       payload: error,
     });
   }
