@@ -15,15 +15,13 @@ import {
 
 import movieApi from '../../common/apis/movieApi';
 
-const api = '1e82f079';
-
 export const getMovies = (searched) => async (dispatch) => {
   dispatch({
     type: GET_MOVIES_REQUEST,
   });
   try {
     const response = await movieApi.get(
-      `?apiKey=${api}&s=${searched}&type=movie`
+      `?apiKey=${process.env.REACT_APP_API_KEY}&s=${searched}&type=movie`
     );
 
     dispatch({
@@ -44,7 +42,9 @@ export const getMovieShowDetails = (id) => async (dispatch) => {
     type: GET_MOVIESHOWDETAIL_REQUEST,
   });
   try {
-    const response = await movieApi.get(`?apiKey=${api}&i=${id}&plot=full`);
+    const response = await movieApi.get(
+      `?apiKey=${process.env.REACT_APP_API_KEY}&i=${id}&plot=full`
+    );
 
     dispatch({
       type: GET_MOVIESHOWDETAIL_SUCCESS,
@@ -65,7 +65,7 @@ export const getShows = (searched) => async (dispatch) => {
   });
   try {
     const response = await movieApi.get(
-      `?apiKey=${api}&s=${searched}&type=series`
+      `?apiKey=${process.env.REACT_APP_API_KEY}&s=${searched}&type=series`
     );
 
     dispatch({
